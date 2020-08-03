@@ -1,10 +1,39 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1>day-off dashboard</h1>
+      <nav class="navbar navbar-light bg-light">
+        <a href="http://www.jasont.dev/" class="navbar-brand">jasont.dev</a>
+      </nav>
+
       <div v-if="remainingDaysOff.length > 0">
-        <h3>next day-off</h3>
-          {{ remainingDaysOff[0].toDateString() }} in {{ numDaysToNextDayOff }} days.
+        <h1>day off dashboard</h1>
+
+        <div class="jumbotron">
+          <h1 class="display-4">{{ numDaysToNextDayOff }} days</h1>
+          <p class="lead">until your next day off</p>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">next day off</h3>
+                {{ remainingDaysOff[0].toDateString() }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">last day off</h3>
+                {{ previousDaysOff.slice(-1).pop().toDateString() }}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
         <div v-if="remainingDaysOff.length > 1"><h3>remaining days-off</h3>
           <table class="table table-striped">
             <tbody>
@@ -14,6 +43,7 @@
             </tbody>
           </table>
         </div>
+
       </div>
       <div v-else>
         <p>Sorry, you don't have any days-off remaining.</p>
@@ -48,6 +78,9 @@ export default {
     },
     numDaysToNextDayOff() {
       return Math.floor((this.remainingDaysOff[0] - Date.now()) / 86400000);
+    },
+    previousDaysOff() {
+      return this.allDaysOff.filter(dayOff => dayOff < Date.now());
     }
   },
   methods: {
