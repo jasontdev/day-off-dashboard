@@ -10,7 +10,7 @@
 
         <div class="jumbotron">
           <h1 class="display-4">{{ numDaysToNextDayOff }} days</h1>
-          <p class="lead">until your next day off</p>
+          <p>until your next day off</p>
         </div>
 
         <div class="row">
@@ -26,7 +26,7 @@
           <div class="col-md-6 col-xs-12">
             <div class="card">
               <div class="card-body">
-                <h3 class="card-title">last day off</h3>
+                <h3 class="card-title">previous day off</h3>
                 {{ previousDaysOff.slice(-1).pop().toDateString() }}
               </div>
             </div>
