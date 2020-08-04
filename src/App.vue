@@ -17,7 +17,7 @@
           <div class="col-md-6 col-xs-12">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">next day off</h4>
+                <h3 class="card-title">next day off</h3>
                 {{ remainingDaysOff[0].toDateString() }}
               </div>
             </div>
@@ -26,7 +26,7 @@
           <div class="col-md-6 col-xs-12">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">last day off</h4>
+                <h3 class="card-title">last day off</h3>
                 {{ previousDaysOff.slice(-1).pop().toDateString() }}
               </div>
             </div>
