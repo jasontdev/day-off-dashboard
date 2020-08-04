@@ -14,19 +14,19 @@
         </div>
 
         <div class="row">
-          <div class="col">
+          <div class="col-md-6 col-xs-12">
             <div class="card">
               <div class="card-body">
-                <h3 class="card-title">next day off</h3>
+                <h4 class="card-title">next day off</h4>
                 {{ remainingDaysOff[0].toDateString() }}
               </div>
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-md-6 col-xs-12">
             <div class="card">
               <div class="card-body">
-                <h3 class="card-title">last day off</h3>
+                <h4 class="card-title">last day off</h4>
                 {{ previousDaysOff.slice(-1).pop().toDateString() }}
               </div>
             </div>
@@ -34,7 +34,8 @@
 
         </div>
 
-        <div v-if="remainingDaysOff.length > 1"><h3>remaining days-off</h3>
+        <div v-if="remainingDaysOff.length > 1">
+          <h2 class="my-3">remaining days off</h2>
           <table class="table table-striped">
             <tbody>
             <tr v-for="dayOff in remainingDaysOff.slice(1)" :key="dayOff.toString()">
